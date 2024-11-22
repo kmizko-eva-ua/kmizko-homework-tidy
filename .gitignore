@@ -1,0 +1,31 @@
+# Игнорировать IDE и системные файлы
+.idea/
+.vscode/
+.DS_Store
+
+# Игнорировать виртуальные окружения
+venv/
+env/
+
+# Игнорировать временные файлы
+*.log
+*.tmp
+*.swp
+__pycache__/
+
+# Игнорировать Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Игнорировать папки логов, данных и конфигураций
+logs/
+data/
+config/
+home_work_10/
+
+# Игнорировать лишние файлы проекта
+*.iml
+*.xml
+*.out
+*.class
+
+home_work_14/requirements.txt
