@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from datetime import datetime
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
 default_args = {
     'owner': 'airflow',
@@ -33,4 +34,9 @@ with DAG(
         ],
     )
 
-    load_silver_user_profiles
+    run_enrich_user_profiles_dag = TriggerDagRunOperator(
+        task_id='run_enrich_user_profiles_dag',
+        trigger_dag_id='enrich_user_profiles',
+    )
+
+    load_silver_user_profiles >> run_enrich_user_profiles_dag
