@@ -21,11 +21,13 @@ logs/
 data/
 config/
 home_work_10/
-
+home_work_14/
 # Игнорировать лишние файлы проекта
 *.iml
 *.xml
 *.out
 *.class
 
+docker-compose.yaml
 home_work_14/requirements.txt
+home_work_14/spark_dataframe_ht.ipynb
