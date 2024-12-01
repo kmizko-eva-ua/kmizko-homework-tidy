@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyTableOperator, BigQueryInsertJobOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
-from airflow.utils.dates import days_ago
+from datetime import datetime
 
 default_args = {
     'owner': 'airflow',
@@ -12,8 +12,8 @@ default_args = {
 with DAG(
     dag_id='process_customers',
     default_args=default_args,
-    schedule_interval=None,
-    start_date=days_ago(1),
+    schedule_interval='@daily',
+    start_date=datetime(2022,9,1),
     catchup=False,
     tags=['bigquery', 'customers'],
 ) as dag:
